@@ -1,0 +1,21 @@
+{
+  "name": "chunk-bug",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "info": "npx -y swc-info@latest",
+    "build": " node transform.mjs"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.5.29"
+  },
+  "stackblitz": {
+    "startCommand": "npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.5"
+  }
+}
