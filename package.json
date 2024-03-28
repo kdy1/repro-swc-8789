@@ -1,14 +1,12 @@
 {
-  "name": "swc-issues",
-  "private": true,
+  "name": "chunk-bug",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "@swc/core": "^1.4.0"
-  },
+  "private": true,
   "scripts": {
-    "build": "RUST_BACKTRACE=1 node ./build.mjs"
+    "build": "node ./transform-a.mjs"
+  },
+  "dependencies": {
+    "@swc/core": "^1.4.11"
   },
   "stackblitz": {
     "startCommand": "npm run build"
