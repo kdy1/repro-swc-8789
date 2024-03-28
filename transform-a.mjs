@@ -1,7 +1,5 @@
-import {transform, version} from '@swc/core';
+import {transform} from '@swc/core';
 import fs from "node:fs";
-
-console.log('swc version:', version);
 
 const fileCode = fs.readFileSync("./a.js", "utf-8");
 const fileMap = fs.readFileSync("./a.js.map", "utf-8");
