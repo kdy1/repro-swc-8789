@@ -12,37 +12,41 @@ const result = await transform(fileCode, {
   sourceMaps: true,
   inputSourceMap: fileMap,
   jsc: {target: 'es5'},
-  module: {type: 'commonjs', strictMode: false},
+  module: {type: "commonjs", strictMode: false},
 })
 
-// minify throw error
+// fs.writeFileSync("./a.transformed.js", result.code);
+// fs.writeFileSync("./a.transformed.js.map", result.map);
+
+// Using the result again to transform throws an error
+// and verification failed in https://evanw.github.io/source-map-visualization/
 await transform(result.code, {
   filename: "a.js",
-  minify: true,
+  // minify: true,
   sourceMaps: true,
   inputSourceMap: result.map,
-  jsc: {
-    target: "es5",
-    minify: {
-      compress: {
-        inline: 0,
-        drop_debugger: false,
-        passes: 1,
-      },
-      mangle: {
-        toplevel: false,
-        keep_classnames: false,
-        keep_fnames: false,
-        keep_private_props: false,
-        ie8: false,
-        safari10: false,
-      },
-      format: {
-        asciiOnly: true,
-        wrapIife: true,
-      },
-    },
-  },
+  // jsc: {
+  //   target: "es5",
+  //   minify: {
+  //     compress: {
+  //       inline: 0,
+  //       drop_debugger: false,
+  //       passes: 1,
+  //     },
+  //     mangle: {
+  //       toplevel: false,
+  //       keep_classnames: false,
+  //       keep_fnames: false,
+  //       keep_private_props: false,
+  //       ie8: false,
+  //       safari10: false,
+  //     },
+  //     format: {
+  //       asciiOnly: true,
+  //       wrapIife: true,
+  //     },
+  //   },
+  // },
   module: {type: "commonjs", strictMode: false},
 }).catch((e) => {
   /**
