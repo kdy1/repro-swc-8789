@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npx -y swc-info@latest && node ./transform-a.mjs"
+    "info": "npx -y swc-info@latest",
+    "build": " node transform.mjs"
   },
   "dependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.5.29"
   },
